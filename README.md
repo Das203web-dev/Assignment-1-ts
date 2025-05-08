@@ -5,10 +5,10 @@ we often used interface and types in typescript to define the structure of objec
 ## what is interface in Typescript
 ### interface is a feature by which we can define the structure of an object
 example : 
-interface User {
+<pre>interface User {
 name : string;
 age : number
-}
+}</pre>
 we are declaring a object structure above using interface where there are two properties name and age
 
 ## what is types in Typescript
