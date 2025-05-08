@@ -25,3 +25,4 @@ This User2 type also declare the same structure of an object like the interface 
 |-------|-----------|------|
 | 1.    |we can define object structure by interface | we can also define object structure using type also |
 | 2.    |if we have to extends a Object structure using interface then we have to use extends keyword with interface | if we have to extends the object structure using type then we have to use the & ( intersection operator ) |
+|3.|If we declare multiple interface with same name then it will be merge automatically|If we declare multiple type with same name then it will throw error |
