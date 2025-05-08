@@ -1,7 +1,3 @@
-// Assignment-1 Typescript
-
-// Problem 1 Solution:
-
 function formatString(input: string, toUpper?: boolean): string {
     if (toUpper ?? true) {
         return input.toUpperCase()
@@ -11,12 +7,9 @@ function formatString(input: string, toUpper?: boolean): string {
     }
 }
 const getValue = formatString("i love to code", true)
-// console.log(getValue);
 
 
-// Problem 2 Solution:
 
-// type Obj = { title: string; rating: number } //can use this one also
 function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
     const findAbove4Rating = items.filter((item: { title: string; rating: number }) => item.rating >= 4)
     return findAbove4Rating
@@ -27,10 +20,8 @@ const books = [
     { title: "Book C", rating: 5.0 }
 ];
 const ratingIs = filterByRating(books)
-// console.log(ratingIs);
 
 
-// Problem 3 solution:
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
     const res: T[] = []
@@ -43,11 +34,8 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
 }
 const concatArrayOfStrings = concatenateArrays<string>(["a", "b"], ["c"])
 const concatArrayOfNumbers = concatenateArrays<number>([1, 2], [3, 4], [5])
-// console.log(concatArrayOfStrings);
-// console.log(concatArrayOfNumbers);
 
 
-// Problem 4 solution:
 
 class Vehicle {
     constructor(private make: string, private year: number) {
@@ -70,12 +58,10 @@ class Car extends Vehicle {
     }
 }
 const myCar = new Car("Toyota", 2020, "Corolla");
-myCar.getInfo()   // Output: "Make: Toyota, Year: 2020"
-myCar.getModel();  // Output: "Model: Corolla"
+myCar.getInfo()
+myCar.getModel();
 
 
-
-// Problem 5 solution:
 
 function processValue(value: string | number): number {
     if (typeof value === "string") {
@@ -86,12 +72,9 @@ function processValue(value: string | number): number {
     }
 }
 const ifIsString = processValue("shuvojit kumar das")
-// console.log(ifIsString);
 const ifIsNumber = processValue(10)
-// console.log(ifIsNumber);
 
 
-// Problem 6 solution:
 
 interface Product {
     name: string;
@@ -118,11 +101,8 @@ const products = [
 ];
 
 const highestPriceProduct = getMostExpensiveProduct(products);
-console.log(highestPriceProduct);
-// Output: { name: "Bag", price: 50 }
 
 
-// Problem 7 solution:
 
 enum Day {
     Monday,
@@ -144,11 +124,8 @@ function getDayType(day: Day): string {
 }
 const weekend = getDayType(Day.Saturday)
 const workday = getDayType(Day.Friday)
-// console.log(weekend)
-// console.log(workday)
 
 
-// Problem 8 solution:
 
 const customPromise = (n: number): Promise<number> => {
     return new Promise<number>((resolve, reject) => {
