@@ -128,9 +128,9 @@ Example :
 
 | Point | Use Case | Use |
 |-------|----------|-----|
-| 1.    |To access keys of generic function | `typeof` |
-| 2.    | To define the type based on the object keys | `typeof` ( Example : T[K])|
-| 3.    | To create reuseable API | `typeof` ( Example : Form validation)|
+| 1.    | To access keys of generic function | `keyof` |
+| 2.    | To define the type based on the object keys | `keyof` ( Example : T[K])|
+| 3.    | To create reuseable API | `keyof` ( Example : Form validation)|
 
 
 ## `keyof` + `typeof` = strong combination
