@@ -123,3 +123,29 @@ Example :
   const userName = getObjectKeys(user,"name") // this will give the key
   const userPhone = getObjectKeys(user,"phone")  // this will give error cause there is no key named `phone` in the `user` object
 </pre>
+
+## When to use the keyof
+
+| Point | Use Case | Use |
+|-------|----------|-----|
+| 1.    |To access keys of generic function | `typeof` |
+| 2.    | To define the type based on the object keys | `typeof` ( Example : T[K])|
+| 3.    | To create reuseable API | `typeof` ( Example : Form validation)|
+
+
+## `keyof` + `typeof` = strong combination
+<pre>
+  const user = {
+    name : string;
+    age : number
+  }
+  type Keys = keyof typeof user // Output will be "name"|"age"
+</pre>
+#### In the above example we are taking the type of the keys using typeof and taking the keys using keyof
+
+## Conclution 
+Typescript keyof operator makes your code more 
+1. Type safe
+2. Readable
+3. Error free
+4. More proffessional
