@@ -23,4 +23,5 @@ This User2 type also declare the same structure of an object like the interface 
 ## Lets see a difference table of interface and type
 | Point | interface | type |
 |-------|-----------|------|
-|1.     |we can define object structure by interface | we can also define object structure using type also |
+| 1.    |we can define object structure by interface | we can also define object structure using type also |
+| 2.    |if we have to extends a Object structure using interface then we have to use extends keyword with interface | if we have to extends the object structure using type then we have to use the & ( intersection operator ) |
