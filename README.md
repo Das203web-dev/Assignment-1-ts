@@ -85,3 +85,23 @@ type User = {
 2. If merging and extending is needed → Use `interface`
 3. To combine complex types → Use `type`
 4. For tuples, unions, or complex type definitions → Use `type`
+
+
+
+# What is the use of the `keyof` keyword in TypeScript? Provide an example.
+
+## `keyof` keyword in Typescript : leran it once and use it foreever
+
+There are lots of feature ror doing safe coding using Typescript . `keyof` is one of the usefull keyword among them . It gives you a special benefit by which you can access the the `key` of any Object type and use them as type for other objects .
+
+## What is `keyof`
+#### `keyof` is a operator of typescript by which we can access the keys of any Object and it returns `Union` types
+Example : 
+<pre>
+  type User = {
+    name : string;
+    age : number;
+    address : string
+  }
+  const keys = keyof User  // Output will be "name" | "age" | "address"
+</pre>
