@@ -88,7 +88,10 @@ type User = {
 
 
 
-# What is the use of the `keyof` keyword in TypeScript? Provide an example.
+
+
+
+# 2. What is the use of the `keyof` keyword in TypeScript? Provide an example.
 
 ## `keyof` keyword in Typescript : leran it once and use it foreever
 
