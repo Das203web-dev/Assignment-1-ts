@@ -1,71 +1,87 @@
 # What are some differences between interfaces and types in TypeScript?
 
-We often used interface and types in typescript to define the structure of object. But a question may arise that if we can declare the structure using types then why there is interface what are the difference between them. In this blog we will see what is the differences between them with some example.
+We often use `interface` and `type` in TypeScript to define the structure of an object. But a question may arise: if we can declare the structure using `type`, then why is there `interface`? What are the differences between them? In this blog, we will see the differences with some examples.
 
-## what is interface in Typescript
-### interface is a feature by which we can define the structure of an object
-example : 
-<pre>interface User {
-name : string;
-age : number
-}</pre>
-### We are declaring a object structure above using interface where there are two properties name and age.
+## What is an interface in TypeScript
 
-## what is types in Typescript
-### type is also a typescript feature . And we can define not only just Object but also Tuple , Union , Primitive type alias etc.
-example : 
-<pre>type User2 = {
-name : string;
-age : number
-}</pre>
-### This User2 type also declare the same structure of an object like the interface but there are some advanced use case for the type.
+### An interface is a feature by which we can define the structure of an object.
 
-## Lets see a difference table of interface and type
+Example:
+```ts
+interface User {
+  name: string;
+  age: number;
+}
+```
+
+### We are declaring an object structure above using `interface`, where there are two properties: `name` and `age`.
+
+## What is a type in TypeScript
+
+### A `type` is also a TypeScript feature. It can define not only an object but also a tuple, union, primitive type alias, etc.
+
+Example:
+```ts
+type User2 = {
+  name: string;
+  age: number;
+}
+```
+
+### This `User2` type also declares the same structure of an object like the interface, but there are some advanced use cases for the type.
+
+## Let's see a difference table of interface and type
+
 | Point | interface | type |
 |-------|-----------|------|
-| 1.    |We can define object structure by interface | We can also define object structure using type also |
-| 2.    |If we have to extends a Object structure using interface then we have to use extends keyword with interface | If we have to extends the object structure using type then we have to use the & ( intersection operator ) |
-|3.|If we declare multiple interface with same name then it will be merge automatically|If we declare multiple type with same name then it will throw error |
-|4.|Interface did not support Union nor Intersection|type did support Union and Intersection |
-|5.|We can use Interface for simple object model| We can use type for complex object model |
+| 1.    | We can define object structure using `interface`. | We can also define object structure using `type`. |
+| 2.    | If we have to extend an object structure using `interface`, we use the `extends` keyword. | If we extend the object structure using `type`, we use the `&` (intersection operator). |
+| 3.    | Declaring multiple interfaces with the same name will merge automatically. | Declaring multiple types with the same name will throw an error. |
+| 4.    | `interface` does not support union types directly. | `type` supports union and intersection types. |
+| 5.    | Use `interface` for simple object models. | Use `type` for complex object models. |
 
+## An example of interface merge
 
-## A example of Interface merge
-<pre>
-  interface User {
-  name : string
-  }
-  interface User {
-  age : number
-  }
-  const user : User = {
-  name = "Shuvo",
-  age : 26
-  }
-</pre>
-### In the above example you can see that we have declared same named interface and using using the interface to define the type of user object. 
+```ts
+interface User {
+  name: string;
+}
+interface User {
+  age: number;
+}
+const user: User = {
+  name: "Shuvo",
+  age: 26
+};
+```
 
-## Type wont be merge
-<pre>
-  type User = {
-  name : string
-  }
-  type User = {
-  age : number
-  } // ❌ Error: Duplicate identifier 'User'
-</pre>
-### if we try to declare multiple type with same name then typescript will give error
+### In the above example, you can see that we have declared interfaces with the same name, and they merged automatically.
 
-## Now lets see when we will use Interface and when type
-|Point|Use Case| Use |
-|-----|--------|-----|
-| 1.| If we have to define only the object struture | interface |
-| 2. | If we have to define Tuple , Union or complex object structure | type |
-| 3.| If we have to merge multiple declaration | interface |
-|4.| If we need maximum type flexibility | type |
+## Type won't be merged
+
+```ts
+type User = {
+  name: string;
+}
+type User = {
+  age: number;
+} // ❌ Error: Duplicate identifier 'User'
+```
+
+### If we try to declare multiple types with the same name, TypeScript will give an error.
+
+## Now let's see when we should use interface and when to use type
+
+| Point | Use Case | Use |
+|-------|----------|-----|
+| 1.    | If we have to define only the object structure | `interface` |
+| 2.    | If we have to define a tuple, union, or complex object structure | `type` |
+| 3.    | If we have to merge multiple declarations | `interface` |
+| 4.    | If we need maximum type flexibility | `type` |
 
 ## Conclusion
-1. Only Object model > Use interface
-2. If merge and extend needed  > Use interface
-3. If needed to combine complex types > Use type
-4. If needed to use tuple or Union or Complex type define  > Use type
+
+1. For only object models → Use `interface`
+2. If merging and extending is needed → Use `interface`
+3. To combine complex types → Use `type`
+4. For tuples, unions, or complex type definitions → Use `type`
