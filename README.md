@@ -149,3 +149,87 @@ Typescript keyof operator makes your code more
 2. Readable
 3. Error free
 4. More proffessional
+
+
+# 3. What is the use of enums in TypeScript? Provide an example of a numeric and string enum.
+
+## Typescript gives us many types of features and enum is one of that. It is used to define fixed values. It makes the code more clean , readable and type safe.
+
+### What is enum
+`enum` is a data type of Typescript which store some fixed values as a group.
+
+#### Example : order status , user role etc
+
+### Numeric enum example
+<pre>
+  
+  enum Status {
+    processing, // 0
+    pending, // 1
+    completed //2
+  }
+  const currentStatus : Status = Status.processing
+  console.log(currentStatus) // Output will be 0 cause enum assign numeric value to each field
+</pre>
+#### In the code the `Status` is the enum name and `processing` , `pending` , `completed` are the members of the enum. In the code we have declared some values togather inside a enum. What enum do is it assign a number for each value serially. And the count start from 0.
+#### You can set your own numeric value also ( note : If you set the value then the count will be start from there )
+<pre>
+  enum Status2 {
+    processing = 5,
+    pending, // 6
+    completed // 7
+  }
+  const currentStatus : Status = Status.processing
+  console.log(currentStatus) // Output will be 5 cause enum assign numeric value to each field
+</pre>
+
+#### what if i provide a value for the centered element
+<pre>
+  enum Status3 {
+    processing , // value will be 0 cause we did not assign anby value to this member
+    pending = 10, // 10
+    completed // value will be 11 cause it comes after the member name pending and its value is assigned as 10
+  }
+</pre>
+#### We can see that the values are automatically increasing 
+
+## String enum
+In string enum we have to provide the values strictly. This one is more use cause we can work based on the API.
+
+<pre>
+  enum Role {
+    Admin = "admin",
+    User = "user",
+    Guest = "Guest"
+  }
+  let role : Role = Role.Admin
+  console.log(role) // Output is "admin"
+</pre>
+
+#### If we did not use enum here then what kind of problem can be arrived
+<pre>
+  let role = "admin";
+  role = "admn" // Here the type is string and thats why typescript won't give any error and this is where enum is needed to strictly check the type and also the typo.
+</pre>
+But if we use enum here then typescript will give error.
+
+<pre>
+  enum Role {
+    Admin = "admin",
+    User = "user",
+    Guest = "Guest"
+  }
+  let role : Role = Role.Admin
+  role = "admn" // here typescript will give error cause of the typo `Role`
+  console.log(role) // Output is "admin"
+</pre>
+
+## When should we have to use enum
+|Use Case|Why use enum |
+|--------|-------------|
+| To store Fixed set of values| Store all the fixed values together|
+| Type and Typo safe | It save you from wrong spelling and unknown value types|
+
+## Conclusion
+If we use enum then it will increase our codes `readability` , `maintainability` and also `type safety`
+
