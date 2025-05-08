@@ -14,7 +14,7 @@ interface User {
 }
 ```
 
-### We are declaring an object structure above using `interface`, where there are two properties: `name` and `age`.
+#### We are declaring an object structure above using `interface`, where there are two properties: `name` and `age`.
 
 ## What is a type in TypeScript
 
@@ -28,7 +28,7 @@ type User2 = {
 }
 ```
 
-### This `User2` type also declares the same structure of an object like the interface, but there are some advanced use cases for the type.
+#### This `User2` type also declares the same structure of an object like the interface, but there are some advanced use cases for the type.
 
 ## Let's see a difference table of interface and type
 
@@ -55,7 +55,7 @@ const user: User = {
 };
 ```
 
-### In the above example, you can see that we have declared interfaces with the same name, and they merged automatically.
+#### In the above example, you can see that we have declared interfaces with the same name, and they merged automatically.
 
 ## Type won't be merged
 
@@ -93,12 +93,12 @@ type User = {
 
 # 2. What is the use of the `keyof` keyword in TypeScript? Provide an example.
 
-## `keyof` keyword in Typescript : leran it once and use it foreever
+## `keyof` keyword in Typescript : learn it once and use it foreever
 
 There are lots of feature ror doing safe coding using Typescript . `keyof` is one of the usefull keyword among them . It gives you a special benefit by which you can access the the `key` of any Object type and use them as type for other objects .
 
 ## What is `keyof`
-#### `keyof` is a operator of typescript by which we can access the keys of any Object and it returns `Union` types
+#### `keyof` is a operator of typescript by which we can access the keys of any Object and it returns `Union` types.
 Example : 
 <pre>
   type User = {
@@ -107,4 +107,19 @@ Example :
     address : string
   }
   const keys = keyof User  // Output will be "name" | "age" | "address"
+</pre>
+#### Note : Remember that we can only use those keys that is available in the specific type ( for e.g : `User` ) . If we use any other keys suppose In User type the name of the keys are `name`,`age`,`address` we have to use these keys only if we try to use others as an example `phoneNo` then typescript will give us an error immedietly.
+
+## Lets see a real world example of using `keyof`
+<pre>
+  function getObjectKeys<T,K extends keyof T> (object : T,key : K) : T[K]{
+      return object[key]
+  }
+  const user = {
+    name = "Shuvo"
+    age = 26
+    address = "Dhaka"
+  }
+  const userName = getObjectKeys(user,"name") // this will give the key
+  const userPhone = getObjectKeys(user,"phone")  // this will give error cause there is no key named `phone` in the `user` object
 </pre>
